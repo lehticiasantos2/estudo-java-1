@@ -1,0 +1,43 @@
+package bancobytebank;
+
+public class Conta {
+	double saldo;
+	int agencia;
+	int numero;
+	String titular; 
+	
+	//métodos: nome_do_metodo(tipo o que envia o que e recebido)
+	
+	public void deposita(double valor) {
+		
+		this.saldo = this.saldo + valor;
+	}
+	
+	public boolean saca(double valor) {
+		//verificando se a conta tem saldo para sacar
+		if(this.saldo >= valor) {
+			this.saldo = this.saldo - valor;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean transfere(double valor, Conta destino) {
+		
+		if(this.saldo >= valor) {
+			saldo -= valor;
+			destino.deposita(valor);
+			return true;
+		}
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+
+}
